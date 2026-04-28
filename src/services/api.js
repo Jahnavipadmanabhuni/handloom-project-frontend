@@ -1,7 +1,9 @@
 // src/services/api.js
 // Central API service — replaces all localStorage calls in the original frontend
 
-const BASE_URL = 'http://localhost:8080/api';
+const BASE_URL = process.env.REACT_APP_API_URL 
+  ? process.env.REACT_APP_API_URL + '/api' 
+  : 'http://localhost:8080/api';
 
 const getAuthHeader = () => {
   const token = localStorage.getItem('handloom_token');
